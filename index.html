@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Site – GitHub Pages Check</title>
+<style>
+  :root {
+    --bg: #eef2f6;
+    --ink: #14213d;
+    --muted: #4a5873;
+    --accent: #f2a900;
+    --panel: #ffffff;
+    --line: #c9d3df;
+    --ok: #1c7c54;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0e1626; --ink: #eaf0f8; --muted: #9fb0c8; --panel: #16223a; --line: #2a3a58; --ok: #4fd1a1; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 18px/1.6 Georgia, "Times New Roman", serif;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+  h1 {
+    font: 800 clamp(2.4rem, 8vw, 4rem)/1.05 "Trebuchet MS", Verdana, sans-serif;
+    letter-spacing: -0.02em; margin: 0 0 1rem;
+    border-left: 0.5rem solid var(--accent); padding-left: 1rem;
+  }
+  p { max-width: 60ch; color: var(--muted); }
+  h2 { font: 700 1.25rem "Trebuchet MS", Verdana, sans-serif; margin: 2.5rem 0 0.75rem; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem; }
+  dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.25rem; font-size: 0.95rem; }
+  dt { color: var(--muted); }
+  dd { margin: 0; word-break: break-all; font-family: Consolas, Menlo, monospace; }
+  .ok { color: var(--ok); font-weight: 700; }
+  button {
+    font: 700 1rem "Trebuchet MS", Verdana, sans-serif; cursor: pointer;
+    background: var(--accent); color: #14213d; border: 0; border-radius: 4px; padding: 0.7rem 1.2rem;
+  }
+  button:hover { filter: brightness(1.07); }
+  button:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  #count { font: 800 2rem "Trebuchet MS", Verdana, sans-serif; margin-left: 1rem; vertical-align: middle; }
+  footer { margin-top: 3rem; font-size: 0.9rem; color: var(--muted); }
+  a { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <h1>It works. This page is live.</h1>
+  <p>If you can read this at a <code>github.io</code> address, GitHub Pages can host your school project. Everything below runs in your browser, so you can also confirm that JavaScript works.</p>
+
+  <h2>Hosting check</h2>
+  <div class="panel">
+    <dl>
+      <dt>Status</dt><dd class="ok" id="status">Checking…</dd>
+      <dt>Address</dt><dd id="url"></dd>
+      <dt>Served over</dt><dd id="proto"></dd>
+      <dt>Loaded at</dt><dd id="time"></dd>
+    </dl>
+  </div>
+
+  <h2>JavaScript check</h2>
+  <div class="panel">
+    <button id="btn" type="button">Click me</button><span id="count" aria-live="polite">0</span>
+  </div>
+
+  <h2>Multiple pages check</h2>
+  <p>Add a second file named <code>about.html</code> next to this one, then use <a href="about.html">this link</a> to confirm that more than one page works.</p>
+
+  <footer>Test site. Replace this content with your project when you're ready.</footer>
+</main>
+
+<script>
+  document.getElementById('url').textContent = location.href;
+  document.getElementById('proto').textContent = location.protocol === 'https:' ? 'HTTPS (hosted)' : 'File on your computer';
+  document.getElementById('time').textContent = new Date().toLocaleString();
+  document.getElementById('status').textContent = location.hostname.endsWith('github.io') ? 'Hosted on GitHub Pages' : 'Running locally (not yet on GitHub Pages)';
+  let n = 0;
+  document.getElementById('btn').addEventListener('click', () => {
+    document.getElementById('count').textContent = ++n;
+  });
+</script>
+</body>
+</html>
