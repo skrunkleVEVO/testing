@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Aeris Basin Response</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
@@ -92,6 +93,7 @@ h3{font-size:17px;font-weight:600}
 .tier-id .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-faint)}
 .tier-id h3{font-size:19px;margin-top:4px}
 .alloc{font-family:var(--mono);font-size:13px;margin-top:10px;font-variant-numeric:tabular-nums;color:var(--accent)}
+.plain{font-size:15.5px;font-weight:600;color:var(--fg);margin-bottom:10px}
 .tier p{font-size:14.5px;color:var(--fg-muted)}
 .tier ul{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--fg-muted);display:flex;flex-direction:column;gap:5px}
 .pill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:10px}
@@ -119,7 +121,7 @@ details{border-bottom:1px solid var(--line)}
 summary{padding:16px 0;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;gap:12px;align-items:baseline}
 summary::-webkit-details-marker{display:none}
 summary::before{content:"+";font-family:var(--mono);color:var(--accent);flex:none}
-details[open] summary::before{content:"–"}
+details[open] summary::before{content:"\2212"}
 details .ans{padding:0 0 18px 24px;font-size:14.5px;color:var(--fg-muted);display:flex;flex-direction:column;gap:10px}
 
 .ask{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
@@ -131,6 +133,7 @@ details .ans{padding:0 0 18px 24px;font-size:14.5px;color:var(--fg-muted);displa
 .callout{border-left:3px solid var(--accent);background:var(--surface);padding:20px 22px;margin-top:28px;max-width:70ch}
 .callout h3{margin-bottom:8px}
 .callout p{font-size:14.5px;color:var(--fg-muted)}
+.callout p + p{margin-top:10px}
 
 footer{border-top:1px solid var(--line);background:var(--surface-2);padding-block:36px;font-size:13px;color:var(--fg-muted)}
 footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px}
@@ -142,9 +145,9 @@ footer p{margin-bottom:5px}
 </style>
 
 <div class="strip"><div class="strip-in">
-  <span>Basin Status · Okanagan</span>
-  <span>Draw Stage 4</span>
-  <span>Allocation 58% of baseline</span>
+  <span>Water Status: Okanagan</span>
+  <span>Stage 4</span>
+  <span>58% of normal water available</span>
   <span>Updated 14 Aug 2051, 06:00 PDT</span>
 </div></div>
 
@@ -157,130 +160,137 @@ footer p{margin-bottom:5px}
     </svg>
     <div>
       <b>Aeris Basin Response</b>
-      <span>Contracted Suppression Operator · RDCO</span>
+      <span>Firefighting Drone Operator · Central Okanagan</span>
     </div>
   </div>
   <nav class="site">
-    <a href="#network">The Network</a>
-    <a href="#allocation">Water Allocation</a>
+    <a href="#network">How It Works</a>
+    <a href="#allocation">Water</a>
     <a href="#tier">Check Your Tier</a>
-    <a href="#residents">What We Ask</a>
+    <a href="#residents">What We Need</a>
     <a href="#faq">Questions</a>
   </nav>
 </div></header>
 
 <div class="alertbar"><div class="alert-in">
-  <b>Active Notice</b>
-  <span>Stage 4 draw limits are in effect for the Central Okanagan until 30 September. Tier 3 properties are on perimeter defence for the remainder of the season.</span>
+  <b>Notice</b>
+  <span>Water limits are in place across the Central Okanagan until September 30. Homes in Tier 3 will not have water used on the building itself for the rest of this fire season.</span>
 </div></div>
 
 <section class="hero"><div class="wrap">
   <div class="eyebrow">Public Information · Central Okanagan</div>
   <h1>Every home in this valley has a response plan. Here is yours.</h1>
-  <p class="lede">Aeris operates the autonomous suppression network for the Regional District of Central Okanagan under a twelve-year service agreement with the Province of British Columbia. This page explains what the network does, how water is allocated during a draw-limited season, and what your household's protection tier means.</p>
+  <p class="lede">Aeris runs the firefighting drone network for the Central Okanagan. We are a private company, hired by the Province of British Columbia on a twelve-year contract. This page explains what our drones do, how we decide where water goes when there is not enough, and what your home's protection tier means.</p>
   <div class="stats">
-    <div class="stat"><div class="n">412</div><div class="k">Aircraft on station</div></div>
-    <div class="stat"><div class="n">94 s</div><div class="k">Median dispatch to first drop</div></div>
-    <div class="stat"><div class="n">1,160</div><div class="k">Ignitions contained, 2050</div></div>
-    <div class="stat"><div class="n">58%</div><div class="k">Of baseline allocation available</div></div>
+    <div class="stat"><div class="n">412</div><div class="k">Drones ready to fly</div></div>
+    <div class="stat"><div class="n">94 s</div><div class="k">Average time to first water drop</div></div>
+    <div class="stat"><div class="n">1,160</div><div class="k">Fires stopped in 2050</div></div>
+    <div class="stat"><div class="n">58%</div><div class="k">Of normal water supply available</div></div>
   </div>
 </div></section>
 
 <section id="network"><div class="wrap">
-  <div class="eyebrow">The Network</div>
-  <h2>A permanent aerial presence over the wildland interface</h2>
-  <p class="lede">The valley has not relied on crewed initial attack since 2043. Detection, dispatch, and suppression are continuous, automated, and basin-wide.</p>
+  <div class="eyebrow">How It Works</div>
+  <h2>Drones in the air over the valley, every day of fire season</h2>
+  <p class="lede">The valley stopped sending firefighters to new fires first in 2043. Fires are now spotted, assigned, and fought by machines that run without waiting for anyone to tell them to start.</p>
   <div class="grid3">
     <div>
-      <h3>Detection</h3>
-      <p>Thermal and spectral sensors on 46 ridge masts between Peachland and Lake Country, cross-referenced with lightning telemetry. Median time from ignition to confirmed detection is 31 seconds.</p>
+      <h3>Spotting the fire</h3>
+      <p>Heat and smoke sensors sit on 46 towers along the ridges between Peachland and Lake Country. They also track lightning strikes. A new fire is usually spotted within 31 seconds of starting.</p>
     </div>
     <div>
-      <h3>Dispatch</h3>
-      <p>The Basin Allocation Engine selects an aircraft group, a water source, and a suppression envelope without human initiation. Regional Fire Command may override a dispatch but does not authorise one.</p>
+      <h3>Sending the drones</h3>
+      <p>Our software chooses which drones go, which lake they fill from, and how they surround the fire. No person approves this first; the system acts on its own. Fire Command staff can stop or redirect the drones after they launch, but they are not the ones who send them.</p>
     </div>
     <div>
-      <h3>Suppression</h3>
-      <p>Each aircraft carries 400 litres drawn from one of 22 lake-fed charging pads. Groups of six to forty operate on a shared containment geometry and refill on rotation until the envelope closes.</p>
+      <h3>Putting it out</h3>
+      <p>Each drone carries 400 litres of water, refilled at one of 22 stations along the lakes. Between six and forty drones work a single fire at once, taking turns to refill, until the fire is surrounded and out.</p>
     </div>
   </div>
   <div class="callout">
-    <h3>Why the network exists</h3>
-    <p>The Okanagan Mountain Park fire of 2003 destroyed 239 homes. The McDougall Creek fire of 2023 destroyed 189 and displaced 35,000 people in a single night. By the late 2030s the valley was recording interface ignitions faster than crewed resources could reach them. Autonomy closed that gap. It did not create more water.</p>
+    <h3>Why we built this</h3>
+    <p>The Okanagan Mountain Park fire of 2003 destroyed 239 homes. The McDougall Creek fire of 2023 destroyed 189 more and forced 35,000 people to leave in a single night.</p>
+    <p>By the late 2030s, fires were starting faster than firefighters could drive to them. The drones solved that problem. They did not solve the other one: there is still only so much water in the lake.</p>
   </div>
 </div></section>
 
 <section id="allocation"><div class="wrap">
-  <div class="eyebrow">Water Allocation</div>
-  <h2>In a draw-limited season, suppression water is finite and assigned in advance</h2>
-  <p class="lede">Okanagan Lake has operated below its historical licensed draw since 2041. Under the Basin Water Order, suppression withdrawals are capped seasonally and shared with municipal supply and agriculture. Aeris does not set the cap. We allocate what the cap permits.</p>
+  <div class="eyebrow">Water</div>
+  <h2>There is not enough water for every fire. Here is how we decide.</h2>
+  <p class="lede">Okanagan Lake has been below its normal level since 2041. By law, the water we may use for firefighting is capped each year, and shared with drinking water and farms. Aeris does not set that cap. We decide how to spend what we are given.</p>
   <div class="prose">
-    <p>Every residential property in the service area is assigned a protection tier before the season opens. The tier determines how much suppression water is reserved for that address and what the network will do when a fire approaches it. Tiers are recalculated annually from a property's structural assessment, its vegetation audit, its position in the modelled fire-spread network, and its sensor mesh status.</p>
-    <p>Tier assignment is a planning instrument, not a judgement about the people who live at an address. It is published so that residents can see the standard applied to their property and act on it.</p>
+    <p>Before each fire season, every home is given a protection tier. Your tier sets how much water is held for your address, and what the drones will do if fire reaches you. Tiers are reviewed once a year, based on how your house is built, how much brush is near it, how likely fire is to spread through your area, and whether your sensors are working.</p>
+    <p>A tier is a planning decision about a building. It is not a judgement about the people who live there. We publish how tiers are set so that you can see the standard we applied to your home, and what you can do about it.</p>
   </div>
 
   <div class="tiers">
     <div class="tier">
       <div class="tier-id">
-        <div class="pill p-ok">Full envelope</div>
+        <div class="pill p-ok">Full protection</div>
         <div class="lab">Tier 1</div>
         <h3>Structure Defence</h3>
-        <div class="alloc">12,000 L reserved per season</div>
+        <div class="alloc">12,000 L held per season</div>
       </div>
       <div>
-        <p>The network will defend the building itself. On approach, aircraft establish a wetted perimeter at the property line and hold a structure-directed envelope until the front passes or the allowance is exhausted.</p>
+        <p class="plain">The drones will protect your house.</p>
+        <p>Drones will wet the ground around your property line, then keep water on the building itself until the fire passes or your water allowance runs out.</p>
+        <p style="margin-top:12px">To stay in Tier 1, your home needs:</p>
         <ul>
-          <li>Verified defensible space to 30 m, audited within 12 months</li>
-          <li>Class A roofing and ember-resistant soffit and vent assemblies</li>
-          <li>Active sensor mesh with uninterrupted uplink</li>
-          <li>Signed overflight and drafting easement on file</li>
+          <li>Brush and trees cleared 30 m around the house, checked in the last year</li>
+          <li>A fire-rated roof, and vents that block flying embers</li>
+          <li>All four roof sensors working and connected</li>
+          <li>Signed permission for drones to fly over your land and draw water from your pool</li>
         </ul>
       </div>
     </div>
     <div class="tier">
       <div class="tier-id">
-        <div class="pill p-warn">Conditional</div>
+        <div class="pill p-warn">Protection when water allows</div>
         <div class="lab">Tier 2</div>
         <h3>Structure Defence, Conditional</h3>
-        <div class="alloc">6,000 L reserved per season</div>
+        <div class="alloc">6,000 L held per season</div>
       </div>
       <div>
-        <p>Structure defence is provided when basin draw status permits it. At Stage 4 and above, Tier 2 properties may be reassigned to perimeter defence during an active event without advance notice. Reassignment is logged and viewable in your property record.</p>
+        <p class="plain">The drones will protect your house, unless water runs short.</p>
+        <p>We will protect the building when there is enough water. At Stage 4 or higher, we may stop protecting your house partway through a fire and switch you to Tier 3 without warning you first. If that happens, it is recorded in your property file.</p>
+        <p style="margin-top:12px">Homes are placed in Tier 2 when:</p>
         <ul>
-          <li>One or more compliance items outstanding at last audit</li>
-          <li>Or: structural assessment complete, modelled spread risk above basin median</li>
-          <li>Allowance is drawn down across the season and is not restored</li>
+          <li>Something was still unfinished at the last inspection</li>
+          <li>Or the house is fine, but fire is more likely to spread through your area than most</li>
+          <li>Your water allowance is used up as the season goes on, and is not topped back up</li>
         </ul>
       </div>
     </div>
     <div class="tier">
       <div class="tier-id">
-        <div class="pill p-em">Perimeter only</div>
+        <div class="pill p-em">No water on the building</div>
         <div class="lab">Tier 3</div>
         <h3>Perimeter Defence</h3>
-        <div class="alloc">No structure-directed allowance</div>
+        <div class="alloc">No water held for the building</div>
       </div>
       <div>
-        <p>The network will work to contain fire movement through the surrounding area. It will not direct water at the building. Tier 3 properties receive priority evacuation notification at the earliest confirmed detection, routed ahead of general alerting.</p>
+        <p class="plain">The drones will not put water on your house.</p>
+        <p>Drones will try to slow the fire moving through your neighbourhood. They will not put water on your house. You will be told to evacuate before anyone else is, as soon as a fire is confirmed.</p>
+        <p style="margin-top:12px">Homes are placed in Tier 3 when:</p>
         <ul>
-          <li>Vegetation audit overdue, failed, or access refused</li>
-          <li>Or: structure outside the serviceable envelope for the available aircraft group</li>
-          <li>Or: easement not on file</li>
-          <li>Reassessment available once per season at no charge</li>
+          <li>The brush inspection is overdue, was failed, or the inspector was turned away</li>
+          <li>Or the house sits somewhere our drones cannot work effectively</li>
+          <li>Or we do not have signed permission to fly over the property</li>
+          <li>You can ask for a free re-inspection once each season</li>
         </ul>
       </div>
     </div>
   </div>
-  <p class="note">Commercial, agricultural, institutional, and multi-unit residential properties are assessed under a separate schedule. Critical infrastructure is protected outside the tier system at all draw stages.</p>
+  <p class="note">Businesses, farms, schools, and apartment buildings are assessed under separate rules. Hospitals, water treatment, and power stations are protected at every water stage, outside the tier system.</p>
 </div></section>
 
 <section id="tier"><div class="wrap">
   <div class="eyebrow">Property Lookup</div>
   <h2>Check your tier</h2>
-  <p class="lede">Your current assignment, allowance, and audit status. Records are updated nightly at 02:00 PDT.</p>
+  <p class="lede">Your tier, your water allowance, and your inspection status. Records update every night at 02:00.</p>
 
   <div class="lookup">
-    <label for="addr">Service address</label>
+    <label for="addr">Your address</label>
     <div class="row">
       <select id="addr">
         <option value="a">1042 Lakeshore Road, Upper Mission</option>
@@ -291,84 +301,85 @@ footer p{margin-bottom:5px}
       <button id="go" type="button">Look up</button>
     </div>
     <div class="result" id="res" aria-live="polite"></div>
-    <p class="note">Showing a sample record. Residents sign in with a BC Services Card to view their own property, submit a vegetation audit booking, or file a tier appeal.</p>
+    <p class="note">This is a sample record. Sign in with a BC Services Card to see your own home, book a brush inspection, or appeal your tier.</p>
   </div>
 </div></section>
 
 <section id="residents"><div class="wrap">
-  <div class="eyebrow">What We Ask of Residents</div>
-  <h2>Four obligations keep a property in structure defence</h2>
-  <p class="lede">The network can only protect what it can reach, measure, and model. These requirements are conditions of the service agreement, not recommendations.</p>
+  <div class="eyebrow">What We Need From You</div>
+  <h2>Four things keep your house protected</h2>
+  <p class="lede">Our drones can only protect a house they can reach, measure, and plan around. These four things are part of the agreement, not suggestions.</p>
   <div class="ask">
     <div>
       <div class="num">01</div>
-      <h3>Annual vegetation audit</h3>
-      <p>An Aeris assessor walks the property and records fuel loading within 30 m. Bookings open 1 March. A refused or missed audit moves the property to Tier 3 at the next recalculation.</p>
+      <h3>Yearly brush inspection</h3>
+      <p>An Aeris inspector walks your property and records how much burnable material is within 30 m of the house. Booking opens March 1. If you miss it or turn the inspector away, your home moves to Tier 3 at the next review.</p>
     </div>
     <div>
       <div class="num">02</div>
-      <h3>Sensor mesh</h3>
-      <p>Four roof-mounted units report temperature, ember flux, and moisture to the allocation engine. Units are installed at no cost. A mesh offline for more than 14 days suspends Tier 1 standing.</p>
+      <h3>Roof sensors</h3>
+      <p>Four small units on your roof send us temperature, ember, and moisture readings. We install them free. If they stay offline more than 14 days, your home loses Tier 1 standing.</p>
     </div>
     <div>
       <div class="num">03</div>
-      <h3>Overflight and drafting easement</h3>
-      <p>A registered covenant permitting aircraft transit below 120 m over the parcel and, where a pond or pool is present, drafting from it during an active event.</p>
+      <h3>Drone access permission</h3>
+      <p>A legal agreement letting our drones fly low over your property, and pump water out of your pool or pond during a fire.</p>
     </div>
     <div>
       <div class="num">04</div>
-      <h3>Structural compliance</h3>
-      <p>Class A roofing, ember-resistant vents, and no combustible material within 1.5 m of any wall. Properties built before 2038 may apply to the Retrofit Assistance Program.</p>
+      <h3>How your house is built</h3>
+      <p>A fire-rated roof, vents that block embers, and nothing that burns within 1.5 m of any wall. Houses built before 2038 can apply for help with the cost.</p>
     </div>
   </div>
 
   <div class="callout">
     <h3>Assured Response</h3>
-    <p>Households that wish to hold structure defence independently of basin draw status may enrol in Assured Response, a supplementary allowance of 9,000 litres carried outside the seasonal cap. Enrolment is $1,840 per year and is available to Tier 1 and Tier 2 properties. Assured Response does not change tier assignment and does not alter dispatch priority between enrolled properties.</p>
+    <p>For $1,840 a year, you can buy an extra 9,000 litres of water that is held for your home no matter how low the lake gets. This water sits outside the yearly limit.</p>
+    <p>Assured Response is open to Tier 1 and Tier 2 homes. It does not change your tier, and it does not move you ahead of other customers who have also paid.</p>
   </div>
 </div></section>
 
 <section id="faq"><div class="wrap">
   <div class="eyebrow">Questions Residents Ask</div>
-  <h2>Straight answers about how the network decides</h2>
+  <h2>Straight answers about how we decide</h2>
   <div class="faq">
     <details open>
       <summary>If two homes are threatened at once and there is water for one, how is the choice made?</summary>
       <div class="ans">
-        <p>The allocation engine resolves competing demands by modelled containment value: the aircraft group is committed where suppression is expected to prevent the greatest total spread, weighted by tier allowance remaining at each address. Where containment value is equal, the engine commits to the property with the higher tier.</p>
-        <p>The decision is made in under two seconds and is recorded. Residents may request the decision log for any event affecting their property.</p>
+        <p>The software sends drones where they will stop the most fire overall, and it gives weight to how much water each home has left. If two homes are equal on both counts, the higher tier gets the water.</p>
+        <p>The decision takes under two seconds, and it is recorded. You can ask to see the record for any fire near your home.</p>
       </div>
     </details>
     <details>
-      <summary>Can a person override a dispatch decision during a fire?</summary>
+      <summary>Can a human stop the drones during a fire?</summary>
       <div class="ans">
-        <p>Regional Fire Command can halt or redirect an aircraft group at any time and does so, on average, eleven times per season. Command cannot create an allocation that the Basin Water Order does not permit. An override that commits water to one property reduces what is available to the rest of the envelope.</p>
+        <p>Yes. Fire Command staff can stop or redirect the drones at any time, and they do so about eleven times a season. What they cannot do is create water that the yearly cap does not allow. Sending water to one house means another house gets less.</p>
       </div>
     </details>
     <details>
-      <summary>My neighbourhood is mostly Tier 3. Why?</summary>
+      <summary>Why is my whole neighbourhood Tier 3?</summary>
       <div class="ans">
-        <p>Tier distribution is not uniform across the valley. Areas with older housing stock, smaller lots, or steep access roads tend toward Tier 2 and Tier 3 because retrofit compliance is harder to achieve and serviceable envelopes are narrower. Aeris publishes tier distribution by neighbourhood in the Annual Service Report.</p>
-        <p>The Retrofit Assistance Program covers up to 60% of compliance costs for properties assessed below the regional median. Program capacity is set by the Province and was fully subscribed in 2049 and 2050.</p>
+        <p>Older houses, smaller lots, and steep narrow roads make it harder to meet our requirements and harder for drones to work. Those neighbourhoods end up with more Tier 2 and Tier 3 homes.</p>
+        <p>Help is available: the Retrofit Assistance Program pays up to 60% of the cost of upgrading a house, for homes assessed below the regional average. The Province sets how many households the program can take each year. It was full in 2049 and full again in 2050.</p>
       </div>
     </details>
     <details>
-      <summary>What happens if my allowance runs out mid-season?</summary>
+      <summary>What if my water runs out halfway through the season?</summary>
       <div class="ans">
-        <p>A property with an exhausted allowance is placed on perimeter defence for the remainder of the season. The network continues to contain fire movement around the address and evacuation notification continues at priority. Allowances are not transferable between properties and do not carry forward.</p>
+        <p>Your home moves to Tier 3 for the rest of the season. Drones will still work to slow fire in your area, and you will still be warned to leave early. Water allowances cannot be given to another household, and unused water does not carry over to next year.</p>
       </div>
     </details>
     <details>
       <summary>Can I appeal my tier?</summary>
       <div class="ans">
-        <p>Yes. Appeals are filed within 14 days of assignment and are heard by the Allocation Review Board, which sits weekly from April to June. The Board may order a reassessment where an audit is shown to contain a factual error. It does not review the allocation model itself, which is set under the Basin Water Order.</p>
-        <p>Board decisions are final. In 2050, 2,847 appeals were filed and 319 resulted in a tier change.</p>
+        <p>Yes. You have 14 days from when your tier is set. Appeals are heard by the Allocation Review Board, which meets weekly from April to June. The Board can order a new inspection if your last one got something factually wrong. It cannot change the rules themselves, which are set by law.</p>
+        <p>Board decisions are final. In 2050, 2,847 people appealed and 319 had their tier changed.</p>
       </div>
     </details>
     <details>
-      <summary>Is my sensor data used for anything other than fire response?</summary>
+      <summary>Who else sees my sensor data?</summary>
       <div class="ans">
-        <p>Mesh data informs tier recalculation and is shared with the Province for basin modelling. It is not shared with insurers. Insurers may, and generally do, ask residents to disclose their tier directly as a condition of coverage.</p>
+        <p>We use your sensor data to set your tier, and we share it with the Province for water planning. We do not give it to insurance companies. Insurance companies usually ask you for your tier themselves, before they will cover your home.</p>
       </div>
     </details>
   </div>
@@ -378,39 +389,39 @@ footer p{margin-bottom:5px}
   <div class="cols">
     <div>
       <h4>Aeris Basin Response</h4>
-      <p>Suppression Operations Centre</p>
+      <p>Operations Centre</p>
       <p>2180 Spall Road, Kelowna BC</p>
-      <p>Operating under RDCO Service Agreement 2047-114</p>
+      <p>Contract 2047-114 with the Regional District of Central Okanagan</p>
     </div>
     <div>
       <h4>Resident Services</h4>
-      <p>Audit bookings and tier appeals: <span class="sel">1-800-555-0142</span></p>
-      <p>Monday to Friday, 07:00–19:00 PDT</p>
+      <p>Inspections and tier appeals: <span class="sel">1-800-555-0142</span></p>
+      <p>Monday to Friday, 07:00 to 19:00</p>
       <p><span class="sel">residents@aerisbasin.ca</span></p>
     </div>
     <div>
       <h4>In an emergency</h4>
-      <p>Call 911. Do not wait for network confirmation.</p>
-      <p>Evacuation orders are issued by the Regional District, not by Aeris.</p>
+      <p>Call 911. Do not wait for us to confirm anything.</p>
+      <p>Orders to evacuate come from the Regional District, not from Aeris.</p>
     </div>
   </div>
-  <p class="legal">Tier assignment, allowance volumes, and dispatch sequencing are determined under the Basin Water Order (BC Reg. 211/2041) and the Central Okanagan Suppression Service Agreement. Aeris Basin Response is a contracted operator and does not hold discretion over seasonal allocation caps. Service standards described on this page apply at Draw Stage 4 and are subject to revision when basin status changes. This is a speculative design artifact created for APSC 176. Aeris Basin Response is a fictional company and nothing on this page describes a real service.</p>
+  <p class="legal">Tiers, water allowances, and the order drones are sent in are set under the Basin Water Order (BC Reg. 211/2041) and our contract with the Regional District of Central Okanagan. Aeris Basin Response is a hired operator and does not control how much water the valley is allowed to use for firefighting each year. The service levels described on this page apply at Stage 4 and may change when the water stage changes. This is a speculative design artifact created for APSC 176. Aeris Basin Response is a fictional company and nothing on this page describes a real service.</p>
 </div></footer>
 
 <script>
 var records = {
-  a: {addr:"1042 Lakeshore Road, Upper Mission", parcel:"029-441-882", tier:"Tier 1 — Structure Defence",
-      alloc:"12,000 L", used:"0 L drawn this season", audit:"Passed 14 May 2051", mesh:"4 of 4 units reporting",
-      ease:"Registered 2047", note:"Property holds full structure defence at current draw stage."},
-  b: {addr:"318 Clifton Road North, Glenmore", parcel:"014-203-770", tier:"Tier 2 — Structure Defence, Conditional",
-      alloc:"6,000 L", used:"2,400 L drawn this season", audit:"Passed with conditions 2 May 2051", mesh:"3 of 4 units reporting",
-      ease:"Registered 2048", note:"At Stage 4, this property may be reassigned to perimeter defence during an active event. One soffit assembly remains non-compliant."},
-  c: {addr:"6771 Wilden Ridge Drive, Wilden", parcel:"031-556-109", tier:"Tier 1 — Structure Defence",
-      alloc:"12,000 L", used:"0 L drawn this season", audit:"Passed 28 April 2051", mesh:"4 of 4 units reporting",
-      ease:"Registered 2046", note:"Enrolled in Assured Response. Supplementary allowance 9,000 L held outside the seasonal cap."},
-  d: {addr:"215 Rutland Road South, Rutland", parcel:"008-117-634", tier:"Tier 3 — Perimeter Defence",
-      alloc:"No structure-directed allowance", used:"—", audit:"Overdue since 1 June 2051", mesh:"0 of 4 units reporting",
-      ease:"Not on file", note:"The network will contain fire movement around this address but will not direct water at the building. Priority evacuation notification is active. Reassessment available at no charge."}
+  a: {addr:"1042 Lakeshore Road, Upper Mission", parcel:"029-441-882", tier:"Tier 1: Structure Defence",
+      alloc:"12,000 L", used:"0 L used this season", audit:"Passed 14 May 2051", mesh:"4 of 4 working",
+      ease:"Signed 2047", note:"The drones will protect this house at the current water stage."},
+  b: {addr:"318 Clifton Road North, Glenmore", parcel:"014-203-770", tier:"Tier 2: Structure Defence, Conditional",
+      alloc:"6,000 L", used:"2,400 L used this season", audit:"Passed with conditions 2 May 2051", mesh:"3 of 4 working",
+      ease:"Signed 2048", note:"At Stage 4, we may stop protecting this house partway through a fire. One roof vent still needs replacing."},
+  c: {addr:"6771 Wilden Ridge Drive, Wilden", parcel:"031-556-109", tier:"Tier 1: Structure Defence",
+      alloc:"12,000 L", used:"0 L used this season", audit:"Passed 28 April 2051", mesh:"4 of 4 working",
+      ease:"Signed 2046", note:"Signed up for Assured Response. An extra 9,000 L is held for this home outside the yearly limit."},
+  d: {addr:"215 Rutland Road South, Rutland", parcel:"008-117-634", tier:"Tier 3: Perimeter Defence",
+      alloc:"No water held for the building", used:"Not applicable", audit:"Overdue since 1 June 2051", mesh:"0 of 4 working",
+      ease:"Not signed", note:"Drones will work to slow fire in the area around this address. They will not put water on the house. You will be warned to leave early. You can ask for a free re-inspection at any time."}
 };
 function render(key){
   var r = records[key];
@@ -419,12 +430,12 @@ function render(key){
     '<div class="pill ' + cls + '">' + r.tier + '</div>' +
     '<dl>' +
     '<dt>Address</dt><dd>' + r.addr + '</dd>' +
-    '<dt>Parcel</dt><dd>' + r.parcel + '</dd>' +
-    '<dt>Allowance</dt><dd>' + r.alloc + '</dd>' +
-    '<dt>Drawn</dt><dd>' + r.used + '</dd>' +
-    '<dt>Audit</dt><dd>' + r.audit + '</dd>' +
-    '<dt>Mesh</dt><dd>' + r.mesh + '</dd>' +
-    '<dt>Easement</dt><dd>' + r.ease + '</dd>' +
+    '<dt>Property ID</dt><dd>' + r.parcel + '</dd>' +
+    '<dt>Water held for you</dt><dd>' + r.alloc + '</dd>' +
+    '<dt>Used so far</dt><dd>' + r.used + '</dd>' +
+    '<dt>Brush inspection</dt><dd>' + r.audit + '</dd>' +
+    '<dt>Sensors</dt><dd>' + r.mesh + '</dd>' +
+    '<dt>Drone access</dt><dd>' + r.ease + '</dd>' +
     '</dl>' +
     '<p class="note">' + r.note + '</p>';
 }
@@ -436,3 +447,5 @@ document.getElementById("addr").addEventListener("change", function(){
 });
 render("a");
 </script>
+
+</body></html>
