@@ -1,0 +1,438 @@
+<title>Aeris Basin Response</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: narrow institutional column; full-bleed status strip at top; data blocks break to edge-to-edge grids */
+:root{
+  --bg:#f3f6f7; --surface:#ffffff; --surface-2:#e8edef; --surface-3:#dde5e8;
+  --fg:#15222a; --fg-muted:#536773; --fg-faint:#7d909b;
+  --line:#ccd7dc; --line-strong:#aebdc4;
+  --accent:#0d6474; --accent-ink:#0a4e5b; --accent-soft:#d8ecef;
+  --ember:#b73f10; --ember-soft:#fae3d7;
+  --warn:#8a6209; --warn-soft:#f7ecd2;
+  --ok:#1f6b47;
+  --display:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --body:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1417; --surface:#141e23; --surface-2:#1c282f; --surface-3:#243239;
+  --fg:#e5edf0; --fg-muted:#91a5af; --fg-faint:#6d828d;
+  --line:#293840; --line-strong:#3a4c56;
+  --accent:#4cb4c6; --accent-ink:#8ed4e0; --accent-soft:#0f2e36;
+  --ember:#ef7a3e; --ember-soft:#361a0e;
+  --warn:#d2a01c; --warn-soft:#332810;
+  --ok:#4caa7d;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0d1417; --surface:#141e23; --surface-2:#1c282f; --surface-3:#243239;
+  --fg:#e5edf0; --fg-muted:#91a5af; --fg-faint:#6d828d;
+  --line:#293840; --line-strong:#3a4c56;
+  --accent:#4cb4c6; --accent-ink:#8ed4e0; --accent-soft:#0f2e36;
+  --ember:#ef7a3e; --ember-soft:#361a0e;
+  --warn:#d2a01c; --warn-soft:#332810;
+  --ok:#4caa7d;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15;letter-spacing:-0.015em}
+p{margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.strip{background:var(--accent-ink);color:#eaf6f8;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+:root[data-theme="dark"] .strip,:root:not([data-theme="light"]) .strip{background:var(--surface-2);color:var(--fg-muted)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .strip{background:var(--accent-ink);color:#eaf6f8}}
+.strip-in{max-width:1100px;margin:0 auto;padding:7px 20px;display:flex;flex-wrap:wrap;gap:6px 18px}
+
+.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
+
+header.site{border-bottom:1px solid var(--line);background:var(--surface)}
+.brandrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.mark{width:34px;height:34px;flex:none}
+.brand b{font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-0.02em;display:block}
+.brand span{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-muted);display:block}
+nav.site{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:13.5px}
+nav.site a{color:var(--fg-muted);text-decoration:none}
+nav.site a:hover{color:var(--accent)}
+
+.alertbar{background:var(--ember-soft);border-bottom:1px solid var(--line)}
+.alert-in{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-size:14px}
+.alert-in b{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ember)}
+
+section{padding-block:56px}
+section + section{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--fg-faint);margin-bottom:14px}
+h2{font-size:clamp(23px,3.4vw,31px);font-weight:600}
+h3{font-size:17px;font-weight:600}
+.lede{font-size:clamp(17px,2.2vw,19px);color:var(--fg-muted);max-width:62ch;margin-top:14px}
+.prose{max-width:66ch;display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.prose p{color:var(--fg-muted)}
+
+.hero h1{font-size:clamp(31px,5.6vw,52px);font-weight:700;max-width:19ch}
+.hero .lede{margin-top:20px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.stat{background:var(--surface);padding:18px 20px}
+.stat .n{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.stat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-faint);margin-top:6px}
+
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:34px}
+.grid3 > div{min-width:0}
+.grid3 h3{margin-bottom:8px}
+.grid3 p{font-size:14.5px;color:var(--fg-muted)}
+
+.tiers{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+.tier{background:var(--surface);padding:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:20px}
+@media (max-width:620px){.tier{grid-template-columns:1fr;gap:12px}}
+.tier-id{min-width:0}
+.tier-id .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-faint)}
+.tier-id h3{font-size:19px;margin-top:4px}
+.alloc{font-family:var(--mono);font-size:13px;margin-top:10px;font-variant-numeric:tabular-nums;color:var(--accent)}
+.tier p{font-size:14.5px;color:var(--fg-muted)}
+.tier ul{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--fg-muted);display:flex;flex-direction:column;gap:5px}
+.pill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:10px}
+.p-ok{background:var(--accent-soft);color:var(--accent-ink)}
+.p-warn{background:var(--warn-soft);color:var(--warn)}
+.p-em{background:var(--ember-soft);color:var(--ember)}
+
+.lookup{border:1px solid var(--line-strong);background:var(--surface);padding:24px;margin-top:30px;max-width:720px}
+.lookup label{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-faint);display:block;margin-bottom:8px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+select,button{font-family:var(--body);font-size:15px;padding:10px 12px;border:1px solid var(--line-strong);background:var(--surface-2);color:var(--fg);border-radius:2px}
+select{flex:1 1 240px;min-width:0}
+button{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;cursor:pointer;padding-inline:20px}
+:root[data-theme="dark"] button,:root:not([data-theme="light"]) button{color:#06191e}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) button{color:#fff}}
+button:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+.result{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.result dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:12px 0 0;font-size:14.5px}
+.result dt{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--fg-faint);padding-top:3px}
+.result dd{margin:0;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--fg-faint);margin-top:16px}
+
+.faq{margin-top:28px;border-top:1px solid var(--line);max-width:74ch}
+details{border-bottom:1px solid var(--line)}
+summary{padding:16px 0;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;gap:12px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-family:var(--mono);color:var(--accent);flex:none}
+details[open] summary::before{content:"–"}
+details .ans{padding:0 0 18px 24px;font-size:14.5px;color:var(--fg-muted);display:flex;flex-direction:column;gap:10px}
+
+.ask{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+.ask > div{background:var(--surface);padding:20px}
+.ask .num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.08em}
+.ask h3{margin:8px 0 6px;font-size:15.5px}
+.ask p{font-size:14px;color:var(--fg-muted)}
+
+.callout{border-left:3px solid var(--accent);background:var(--surface);padding:20px 22px;margin-top:28px;max-width:70ch}
+.callout h3{margin-bottom:8px}
+.callout p{font-size:14.5px;color:var(--fg-muted)}
+
+footer{border-top:1px solid var(--line);background:var(--surface-2);padding-block:36px;font-size:13px;color:var(--fg-muted)}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px}
+footer h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--fg-faint);margin-bottom:10px}
+footer p{margin-bottom:5px}
+.legal{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--fg-faint);max-width:78ch}
+.sel{font-family:var(--mono);font-size:13px;background:var(--surface-3);padding:2px 6px;border-radius:2px;user-select:all}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="strip"><div class="strip-in">
+  <span>Basin Status · Okanagan</span>
+  <span>Draw Stage 4</span>
+  <span>Allocation 58% of baseline</span>
+  <span>Updated 14 Aug 2051, 06:00 PDT</span>
+</div></div>
+
+<header class="site"><div class="wrap brandrow">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+      <path d="M20 7 L20 33 M7 20 L33 20" stroke="var(--line-strong)" stroke-width="1"/>
+      <path d="M20 12 C24 17 26 20 26 23 a6 6 0 0 1-12 0 c0-3 2-6 6-11 z" fill="var(--accent)"/>
+    </svg>
+    <div>
+      <b>Aeris Basin Response</b>
+      <span>Contracted Suppression Operator · RDCO</span>
+    </div>
+  </div>
+  <nav class="site">
+    <a href="#network">The Network</a>
+    <a href="#allocation">Water Allocation</a>
+    <a href="#tier">Check Your Tier</a>
+    <a href="#residents">What We Ask</a>
+    <a href="#faq">Questions</a>
+  </nav>
+</div></header>
+
+<div class="alertbar"><div class="alert-in">
+  <b>Active Notice</b>
+  <span>Stage 4 draw limits are in effect for the Central Okanagan until 30 September. Tier 3 properties are on perimeter defence for the remainder of the season.</span>
+</div></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Public Information · Central Okanagan</div>
+  <h1>Every home in this valley has a response plan. Here is yours.</h1>
+  <p class="lede">Aeris operates the autonomous suppression network for the Regional District of Central Okanagan under a twelve-year service agreement with the Province of British Columbia. This page explains what the network does, how water is allocated during a draw-limited season, and what your household's protection tier means.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">412</div><div class="k">Aircraft on station</div></div>
+    <div class="stat"><div class="n">94 s</div><div class="k">Median dispatch to first drop</div></div>
+    <div class="stat"><div class="n">1,160</div><div class="k">Ignitions contained, 2050</div></div>
+    <div class="stat"><div class="n">58%</div><div class="k">Of baseline allocation available</div></div>
+  </div>
+</div></section>
+
+<section id="network"><div class="wrap">
+  <div class="eyebrow">The Network</div>
+  <h2>A permanent aerial presence over the wildland interface</h2>
+  <p class="lede">The valley has not relied on crewed initial attack since 2043. Detection, dispatch, and suppression are continuous, automated, and basin-wide.</p>
+  <div class="grid3">
+    <div>
+      <h3>Detection</h3>
+      <p>Thermal and spectral sensors on 46 ridge masts between Peachland and Lake Country, cross-referenced with lightning telemetry. Median time from ignition to confirmed detection is 31 seconds.</p>
+    </div>
+    <div>
+      <h3>Dispatch</h3>
+      <p>The Basin Allocation Engine selects an aircraft group, a water source, and a suppression envelope without human initiation. Regional Fire Command may override a dispatch but does not authorise one.</p>
+    </div>
+    <div>
+      <h3>Suppression</h3>
+      <p>Each aircraft carries 400 litres drawn from one of 22 lake-fed charging pads. Groups of six to forty operate on a shared containment geometry and refill on rotation until the envelope closes.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <h3>Why the network exists</h3>
+    <p>The Okanagan Mountain Park fire of 2003 destroyed 239 homes. The McDougall Creek fire of 2023 destroyed 189 and displaced 35,000 people in a single night. By the late 2030s the valley was recording interface ignitions faster than crewed resources could reach them. Autonomy closed that gap. It did not create more water.</p>
+  </div>
+</div></section>
+
+<section id="allocation"><div class="wrap">
+  <div class="eyebrow">Water Allocation</div>
+  <h2>In a draw-limited season, suppression water is finite and assigned in advance</h2>
+  <p class="lede">Okanagan Lake has operated below its historical licensed draw since 2041. Under the Basin Water Order, suppression withdrawals are capped seasonally and shared with municipal supply and agriculture. Aeris does not set the cap. We allocate what the cap permits.</p>
+  <div class="prose">
+    <p>Every residential property in the service area is assigned a protection tier before the season opens. The tier determines how much suppression water is reserved for that address and what the network will do when a fire approaches it. Tiers are recalculated annually from a property's structural assessment, its vegetation audit, its position in the modelled fire-spread network, and its sensor mesh status.</p>
+    <p>Tier assignment is a planning instrument, not a judgement about the people who live at an address. It is published so that residents can see the standard applied to their property and act on it.</p>
+  </div>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-id">
+        <div class="pill p-ok">Full envelope</div>
+        <div class="lab">Tier 1</div>
+        <h3>Structure Defence</h3>
+        <div class="alloc">12,000 L reserved per season</div>
+      </div>
+      <div>
+        <p>The network will defend the building itself. On approach, aircraft establish a wetted perimeter at the property line and hold a structure-directed envelope until the front passes or the allowance is exhausted.</p>
+        <ul>
+          <li>Verified defensible space to 30 m, audited within 12 months</li>
+          <li>Class A roofing and ember-resistant soffit and vent assemblies</li>
+          <li>Active sensor mesh with uninterrupted uplink</li>
+          <li>Signed overflight and drafting easement on file</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tier">
+      <div class="tier-id">
+        <div class="pill p-warn">Conditional</div>
+        <div class="lab">Tier 2</div>
+        <h3>Structure Defence, Conditional</h3>
+        <div class="alloc">6,000 L reserved per season</div>
+      </div>
+      <div>
+        <p>Structure defence is provided when basin draw status permits it. At Stage 4 and above, Tier 2 properties may be reassigned to perimeter defence during an active event without advance notice. Reassignment is logged and viewable in your property record.</p>
+        <ul>
+          <li>One or more compliance items outstanding at last audit</li>
+          <li>Or: structural assessment complete, modelled spread risk above basin median</li>
+          <li>Allowance is drawn down across the season and is not restored</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tier">
+      <div class="tier-id">
+        <div class="pill p-em">Perimeter only</div>
+        <div class="lab">Tier 3</div>
+        <h3>Perimeter Defence</h3>
+        <div class="alloc">No structure-directed allowance</div>
+      </div>
+      <div>
+        <p>The network will work to contain fire movement through the surrounding area. It will not direct water at the building. Tier 3 properties receive priority evacuation notification at the earliest confirmed detection, routed ahead of general alerting.</p>
+        <ul>
+          <li>Vegetation audit overdue, failed, or access refused</li>
+          <li>Or: structure outside the serviceable envelope for the available aircraft group</li>
+          <li>Or: easement not on file</li>
+          <li>Reassessment available once per season at no charge</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="note">Commercial, agricultural, institutional, and multi-unit residential properties are assessed under a separate schedule. Critical infrastructure is protected outside the tier system at all draw stages.</p>
+</div></section>
+
+<section id="tier"><div class="wrap">
+  <div class="eyebrow">Property Lookup</div>
+  <h2>Check your tier</h2>
+  <p class="lede">Your current assignment, allowance, and audit status. Records are updated nightly at 02:00 PDT.</p>
+
+  <div class="lookup">
+    <label for="addr">Service address</label>
+    <div class="row">
+      <select id="addr">
+        <option value="a">1042 Lakeshore Road, Upper Mission</option>
+        <option value="b">318 Clifton Road North, Glenmore</option>
+        <option value="c">6771 Wilden Ridge Drive, Wilden</option>
+        <option value="d">215 Rutland Road South, Rutland</option>
+      </select>
+      <button id="go" type="button">Look up</button>
+    </div>
+    <div class="result" id="res" aria-live="polite"></div>
+    <p class="note">Showing a sample record. Residents sign in with a BC Services Card to view their own property, submit a vegetation audit booking, or file a tier appeal.</p>
+  </div>
+</div></section>
+
+<section id="residents"><div class="wrap">
+  <div class="eyebrow">What We Ask of Residents</div>
+  <h2>Four obligations keep a property in structure defence</h2>
+  <p class="lede">The network can only protect what it can reach, measure, and model. These requirements are conditions of the service agreement, not recommendations.</p>
+  <div class="ask">
+    <div>
+      <div class="num">01</div>
+      <h3>Annual vegetation audit</h3>
+      <p>An Aeris assessor walks the property and records fuel loading within 30 m. Bookings open 1 March. A refused or missed audit moves the property to Tier 3 at the next recalculation.</p>
+    </div>
+    <div>
+      <div class="num">02</div>
+      <h3>Sensor mesh</h3>
+      <p>Four roof-mounted units report temperature, ember flux, and moisture to the allocation engine. Units are installed at no cost. A mesh offline for more than 14 days suspends Tier 1 standing.</p>
+    </div>
+    <div>
+      <div class="num">03</div>
+      <h3>Overflight and drafting easement</h3>
+      <p>A registered covenant permitting aircraft transit below 120 m over the parcel and, where a pond or pool is present, drafting from it during an active event.</p>
+    </div>
+    <div>
+      <div class="num">04</div>
+      <h3>Structural compliance</h3>
+      <p>Class A roofing, ember-resistant vents, and no combustible material within 1.5 m of any wall. Properties built before 2038 may apply to the Retrofit Assistance Program.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Assured Response</h3>
+    <p>Households that wish to hold structure defence independently of basin draw status may enrol in Assured Response, a supplementary allowance of 9,000 litres carried outside the seasonal cap. Enrolment is $1,840 per year and is available to Tier 1 and Tier 2 properties. Assured Response does not change tier assignment and does not alter dispatch priority between enrolled properties.</p>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="eyebrow">Questions Residents Ask</div>
+  <h2>Straight answers about how the network decides</h2>
+  <div class="faq">
+    <details open>
+      <summary>If two homes are threatened at once and there is water for one, how is the choice made?</summary>
+      <div class="ans">
+        <p>The allocation engine resolves competing demands by modelled containment value: the aircraft group is committed where suppression is expected to prevent the greatest total spread, weighted by tier allowance remaining at each address. Where containment value is equal, the engine commits to the property with the higher tier.</p>
+        <p>The decision is made in under two seconds and is recorded. Residents may request the decision log for any event affecting their property.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can a person override a dispatch decision during a fire?</summary>
+      <div class="ans">
+        <p>Regional Fire Command can halt or redirect an aircraft group at any time and does so, on average, eleven times per season. Command cannot create an allocation that the Basin Water Order does not permit. An override that commits water to one property reduces what is available to the rest of the envelope.</p>
+      </div>
+    </details>
+    <details>
+      <summary>My neighbourhood is mostly Tier 3. Why?</summary>
+      <div class="ans">
+        <p>Tier distribution is not uniform across the valley. Areas with older housing stock, smaller lots, or steep access roads tend toward Tier 2 and Tier 3 because retrofit compliance is harder to achieve and serviceable envelopes are narrower. Aeris publishes tier distribution by neighbourhood in the Annual Service Report.</p>
+        <p>The Retrofit Assistance Program covers up to 60% of compliance costs for properties assessed below the regional median. Program capacity is set by the Province and was fully subscribed in 2049 and 2050.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What happens if my allowance runs out mid-season?</summary>
+      <div class="ans">
+        <p>A property with an exhausted allowance is placed on perimeter defence for the remainder of the season. The network continues to contain fire movement around the address and evacuation notification continues at priority. Allowances are not transferable between properties and do not carry forward.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Can I appeal my tier?</summary>
+      <div class="ans">
+        <p>Yes. Appeals are filed within 14 days of assignment and are heard by the Allocation Review Board, which sits weekly from April to June. The Board may order a reassessment where an audit is shown to contain a factual error. It does not review the allocation model itself, which is set under the Basin Water Order.</p>
+        <p>Board decisions are final. In 2050, 2,847 appeals were filed and 319 resulted in a tier change.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Is my sensor data used for anything other than fire response?</summary>
+      <div class="ans">
+        <p>Mesh data informs tier recalculation and is shared with the Province for basin modelling. It is not shared with insurers. Insurers may, and generally do, ask residents to disclose their tier directly as a condition of coverage.</p>
+      </div>
+    </details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>Aeris Basin Response</h4>
+      <p>Suppression Operations Centre</p>
+      <p>2180 Spall Road, Kelowna BC</p>
+      <p>Operating under RDCO Service Agreement 2047-114</p>
+    </div>
+    <div>
+      <h4>Resident Services</h4>
+      <p>Audit bookings and tier appeals: <span class="sel">1-800-555-0142</span></p>
+      <p>Monday to Friday, 07:00–19:00 PDT</p>
+      <p><span class="sel">residents@aerisbasin.ca</span></p>
+    </div>
+    <div>
+      <h4>In an emergency</h4>
+      <p>Call 911. Do not wait for network confirmation.</p>
+      <p>Evacuation orders are issued by the Regional District, not by Aeris.</p>
+    </div>
+  </div>
+  <p class="legal">Tier assignment, allowance volumes, and dispatch sequencing are determined under the Basin Water Order (BC Reg. 211/2041) and the Central Okanagan Suppression Service Agreement. Aeris Basin Response is a contracted operator and does not hold discretion over seasonal allocation caps. Service standards described on this page apply at Draw Stage 4 and are subject to revision when basin status changes. This is a speculative design artifact created for APSC 176. Aeris Basin Response is a fictional company and nothing on this page describes a real service.</p>
+</div></footer>
+
+<script>
+var records = {
+  a: {addr:"1042 Lakeshore Road, Upper Mission", parcel:"029-441-882", tier:"Tier 1 — Structure Defence",
+      alloc:"12,000 L", used:"0 L drawn this season", audit:"Passed 14 May 2051", mesh:"4 of 4 units reporting",
+      ease:"Registered 2047", note:"Property holds full structure defence at current draw stage."},
+  b: {addr:"318 Clifton Road North, Glenmore", parcel:"014-203-770", tier:"Tier 2 — Structure Defence, Conditional",
+      alloc:"6,000 L", used:"2,400 L drawn this season", audit:"Passed with conditions 2 May 2051", mesh:"3 of 4 units reporting",
+      ease:"Registered 2048", note:"At Stage 4, this property may be reassigned to perimeter defence during an active event. One soffit assembly remains non-compliant."},
+  c: {addr:"6771 Wilden Ridge Drive, Wilden", parcel:"031-556-109", tier:"Tier 1 — Structure Defence",
+      alloc:"12,000 L", used:"0 L drawn this season", audit:"Passed 28 April 2051", mesh:"4 of 4 units reporting",
+      ease:"Registered 2046", note:"Enrolled in Assured Response. Supplementary allowance 9,000 L held outside the seasonal cap."},
+  d: {addr:"215 Rutland Road South, Rutland", parcel:"008-117-634", tier:"Tier 3 — Perimeter Defence",
+      alloc:"No structure-directed allowance", used:"—", audit:"Overdue since 1 June 2051", mesh:"0 of 4 units reporting",
+      ease:"Not on file", note:"The network will contain fire movement around this address but will not direct water at the building. Priority evacuation notification is active. Reassessment available at no charge."}
+};
+function render(key){
+  var r = records[key];
+  var cls = r.tier.indexOf("Tier 1") === 0 ? "p-ok" : (r.tier.indexOf("Tier 2") === 0 ? "p-warn" : "p-em");
+  document.getElementById("res").innerHTML =
+    '<div class="pill ' + cls + '">' + r.tier + '</div>' +
+    '<dl>' +
+    '<dt>Address</dt><dd>' + r.addr + '</dd>' +
+    '<dt>Parcel</dt><dd>' + r.parcel + '</dd>' +
+    '<dt>Allowance</dt><dd>' + r.alloc + '</dd>' +
+    '<dt>Drawn</dt><dd>' + r.used + '</dd>' +
+    '<dt>Audit</dt><dd>' + r.audit + '</dd>' +
+    '<dt>Mesh</dt><dd>' + r.mesh + '</dd>' +
+    '<dt>Easement</dt><dd>' + r.ease + '</dd>' +
+    '</dl>' +
+    '<p class="note">' + r.note + '</p>';
+}
+document.getElementById("go").addEventListener("click", function(){
+  render(document.getElementById("addr").value);
+});
+document.getElementById("addr").addEventListener("change", function(){
+  render(this.value);
+});
+render("a");
+</script>
